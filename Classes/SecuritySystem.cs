@@ -4,11 +4,6 @@ public class SecuritySystem
 {
     public string Password { get; set; }
 
-    public void CreatePasword(string password)
-    {
-        Password = password;
-    }
-
     public void PasswordError()
     {
         Console.WriteLine("Password is wrong, check and try again");
@@ -19,5 +14,18 @@ public class SecuritySystem
     {
         Console.WriteLine("Password successfully passed !!!");
         Console.WriteLine();
+    }
+
+    public void CheckPassword()
+    {
+        key: Console.Write("Password:");
+        var password = Console.ReadLine();
+        Console.Clear();
+        if (password != "password")
+        {
+            PasswordError();
+            goto key;
+        }
+        PasswordPassed();
     }
 }

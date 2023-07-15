@@ -1,10 +1,9 @@
 using System;
 public class BankAccaunt
 {
-    int accauntNumber = 0;
-    public BankAccaunt(decimal balance)
+    public BankAccaunt(int accauntNumber, decimal balance)
     {
-        AccauntNumber = ++accauntNumber;
+        AccauntNumber = accauntNumber;
         Balance = balance;
     }
 
@@ -17,25 +16,30 @@ public class BankAccaunt
         Console.WriteLine($"Balance: {Balance}");
     }
 
-    public decimal Deposit(decimal amount)
+    public void Deposit(decimal amount)
     {
-        return Balance += amount;
+        Balance += amount;
+        Console.WriteLine($"{amount:C2} deposited to {AccauntNumber} Accaunt Number");
     }
     public void Withdaw(decimal amount)
     {
-        if(Balance > amount)
-            SubstructAmount(amount);
+        if(Balance >= amount)
+        {
+            Balance -= amount;
+            Console.WriteLine($"{amount:C2} withdraw from {AccauntNumber} Accaunt Number");
+        }
         else
-            AmountError();
+            Console.WriteLine("You do not have enough money, Please check your balance first!!!");
     }
 
-    public void AmountError()
+    public void Transfer(BankAccaunt destinationAccaunt, decimal amount)
     {
-        Console.WriteLine("You do not have enough money, Please check your balance first!!!");
-    }
-
-    public decimal SubstructAmount(decimal amount)
-    {
-        return Balance -= amount;
+        if(this.Balance >= amount)
+        {
+            this.Withdaw(amount);
+            destinationAccaunt.Deposit(amount);
+            Console.Write($"{amount:C2} transfered from {this.AccauntNumber}");
+            Console.WriteLine($" to {destinationAccaunt.AccauntNumber} Accaunt Number");
+        }
     }
 }
