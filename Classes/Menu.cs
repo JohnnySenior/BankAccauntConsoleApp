@@ -1,23 +1,70 @@
 using System;
+using BankSystemApp.Classes.Classes;
 
 public class Menu
 {
-    public void start()
+    private int UserBalance { get; set; }
+    public void ChoiceOptionsOfMenu()
     {
-        Console.WriteLine("--------------- MENU ---------------");
-        Console.WriteLine("1. Balance");
-        Console.WriteLine("2. Withdraw");
-        Console.WriteLine("3. Deposit");
-        Console.WriteLine("4. Transfer");
-        Console.WriteLine("5. Exit");
-        Console.WriteLine("------------------------------------");
-    }
+        int sectionSelection;
+        UserBalance = 100;
+        var transferAccount = new TransferAccount(UserBalance);
+            do
+            {
+                Report.ShowMenu();
+                
+                sectionSelection = ValueManipulator.GetInputByMessageToNumbers("Please enter a number that you need: ");
+                Console.Clear();
 
-    public void ChooseAccaunt()
-    {
-        Console.WriteLine("You have two Bank Accaunt. Which one do you need ?");
-        Console.WriteLine("1. bankAccaunt");
-        Console.WriteLine("2. bankAccaunt1");
-        Console.Write("Choose accaunt: ");
+                switch (sectionSelection)
+                {
+                    case 1:
+                        var security = new SecuritySystem();
+                        transferAccount.AccountBalance();
+                        break;
+                    case 2:
+                        key2:
+                        security = new SecuritySystem();
+                    var withDraw =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to withdraw: ");
+                        transferAccount.WithDraw(withDraw);
+                        break;
+                    
+                    case 3:
+                        key3:
+                        security = new SecuritySystem();
+                        var deposit =
+                            ValueManipulator.GetInputByMessageToNumbers("How much money you want to deposit: ");
+                        transferAccount.Deposit(deposit); break;
+
+                    // case 4:
+                    // key4: menu.ChooseAccaunt();
+                    // accaunt = ValueManipulator.InputOption();
+                    //
+                    //     if (accaunt == 1)
+                    //     {
+                    //         security.CheckPassword();
+                    //         var transfer =
+                    //             ValueManipulator.GetInputByMessageToNumbers("How much money you want to transfer: ");
+                    //         bankAccaunt.Transfer(bankAccaunt1, transfer);
+                    //     }
+                    //     if (accaunt == 2)
+                    //     {
+                    //         security.CheckPassword();
+                    //         var transfer =
+                    //             ValueManipulator.GetInputByMessageToNumbers("How much money you want to transfer: ");
+                    //         bankAccaunt1.Transfer(bankAccaunt, transfer);
+                    //     }
+                    //     else
+                    //     {
+                    //         ValueManipulator.ShowMessage("You entered wrong number, try again !");
+                    //         goto key4;
+                    //     } break;
+
+                    case 5:
+                        ValueManipulator.ShowMessage("Thank you for using!!!");
+                        break;
+                }
+            } while (sectionSelection != 5);
     }
 }
