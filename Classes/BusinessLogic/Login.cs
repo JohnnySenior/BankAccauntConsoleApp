@@ -23,9 +23,9 @@ public class Login
         while (userName != userName || Password != password)
         {
             Console.Clear();
-            Console.WriteLine("Incorrect card number or password.");
+            Console.WriteLine("Incorrect User name or Password. Please, try again.");
             userName =
-                ValueManipulator.GetInputByMessageToDate("Card Number: ");
+                ValueManipulator.GetInputByMessageToDate("User name: ");
             password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
         }
         
