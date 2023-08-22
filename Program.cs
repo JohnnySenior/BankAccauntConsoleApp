@@ -12,6 +12,23 @@ namespace BankSystemApp.Classes
             var bankAccaunt1 = new BankAccaunt(2, 1000m);
             var security = new SecuritySystem();
             int number;
+            
+            int choiceLogin = ValueManipulator.GetInputByMessageToNumbers("---------------Bank Asia---------------" +
+                                                                          "\n1.Login\n2.Create account\n3.Exit\nChoice: ");
+            
+            switch (choiceLogin)
+            {
+                case 1: break;
+
+                case 2:
+                    var createAccount = new CreateAccount();
+                    createAccount.CreateAccountUsers();
+                    break;
+                    
+                default:
+                    ValueManipulator.ShowMessage($"---------------Goodbye!--------------- ");
+                    break;
+            }
             do
             {
                 Console.WriteLine();
