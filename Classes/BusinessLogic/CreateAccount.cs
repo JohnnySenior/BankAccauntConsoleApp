@@ -27,7 +27,7 @@ public class CreateAccount
         int selection = ValueManipulator.GetInputByMessageToNumbers("\n1.Login\n2.Exit\nChoice:");
         if (selection == 1)
         {
-            var login = new Login(cardNumber, Password);
+            var login = new Login(Name, Password);
             login.UserLogin();
         }
         else

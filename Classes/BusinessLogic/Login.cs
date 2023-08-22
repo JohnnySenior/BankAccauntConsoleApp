@@ -4,28 +4,28 @@ namespace BankSystemApp.Classes.Classes;
 
 public class Login
 { 
-    public int CardNumber { get; set; }
+    public string UserName { get; set; }
     public int Password { get; set; }
 
-    public Login(int readyCardNumber, int readyPassword)
+    public Login(string userName, int readyPassword)
     {
-        CardNumber = readyCardNumber;
+        UserName = userName;
         Password = readyPassword;
     }
     
     public void UserLogin()
     {
         Console.WriteLine("---------------Login---------------");
-        int cardNumber =
-            ValueManipulator.GetInputByMessageToNumbers("Card Number: ");
+        string userName =
+            ValueManipulator.GetInputByMessageToDate("User name: ");
         int password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
 
-        while (CardNumber != cardNumber || Password != password)
+        while (userName != userName || Password != password)
         {
             Console.Clear();
             Console.WriteLine("Incorrect card number or password.");
-            cardNumber =
-                ValueManipulator.GetInputByMessageToNumbers("Card Number: ");
+            userName =
+                ValueManipulator.GetInputByMessageToDate("Card Number: ");
             password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
         }
         
