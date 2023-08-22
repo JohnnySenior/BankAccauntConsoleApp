@@ -4,29 +4,34 @@ namespace BankSystemApp.Classes.Classes;
 
 public class CreateAccount
 {
-    private string name;
-    private int password;
     public string Name { get; set; }
     public int Password { get; set; }
 
-    public CreateAccount()
+    int cardNumber;
+
+    public CreateAccount(string userName, int userPassword)
     {
-        name = Name;
-        password = Password;
-
-        name = ValueManipulator.GetInputByMessageToDate("---------------Create account---------------\n\nName: ");
-        password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
-
+        Name = userName;
+        Password = userPassword;
+    }
+    
+    public void CreateNewUserAccount()
+    {
         Random random = new Random();
-        ValueManipulator.ShowMessage($"\n{name}, verification successful." +
+        cardNumber = random.Next(100000000, 999999999);
+        ValueManipulator.ShowMessage($"\n{Name}, verification successful." +
                                      $"\nYour Visa card has been successfully linked you." +
-                                     $"\n\nCard number: {random.Next(100000000, 999999999)}" +
-                                     $"\nName: {name}");
+                                     $"\n\nCard number: {cardNumber}" +
+                                     $"\nName: {Name}");
+        
         int selection = ValueManipulator.GetInputByMessageToNumbers("\n1.Login\n2.Exit\nChoice:");
         if (selection == 1)
         {
+            var login = new Login(cardNumber, Password);
+            login.UserLogin();
         }
         else
-            ValueManipulator.ShowMessage($"---------------Goodbye {name}!--------------- ");
+            ValueManipulator.ShowMessage($"---------------Goodbye {Name}!--------------- ");
+        // return cardNumber;
     }
 }
