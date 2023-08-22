@@ -1,4 +1,5 @@
 ﻿using System;
+using BankSystemApp.Classes.Classes;
 
 namespace BankSystemApp.Classes
 {
@@ -11,20 +12,35 @@ namespace BankSystemApp.Classes
             var bankAccaunt1 = new BankAccaunt(2, 1000m);
             var security = new SecuritySystem();
             int number;
+            
+            int choiceLogin = ValueManipulator.GetInputByMessageToNumbers("---------------Bank Asia---------------" +
+                                                                          "\n1.Login\n2.Create account\n3.Exit\nChoice: ");
+            
+            switch (choiceLogin)
+            {
+                case 1: break;
 
+                case 2:
+                    var createAccount = new CreateAccount();
+                    createAccount.CreateAccountUsers();
+                    break;
+                    
+                default:
+                    ValueManipulator.ShowMessage($"---------------Goodbye!--------------- ");
+                    break;
+            }
             do
             {
                 Console.WriteLine();
                 menu.start();
-                Console.Write("Please enter a number that you need: ");
-                number = int.Parse(Console.ReadLine());
+                number = ValueManipulator.GetInputByMessageToNumbers("Please enter a number that you need: ");
                 Console.Clear();
 
                 switch (number)
                 {
                     case 1:
                     key1: menu.ChooseAccaunt();
-                    var accaunt = int.Parse(Console.ReadLine());
+                    var accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)
                         {
@@ -38,31 +54,30 @@ namespace BankSystemApp.Classes
                         }
                         else
                         {
-                            Console.WriteLine("You entered wrong number, try again !");
+                            ValueManipulator.ShowMessage("You entered wrong number, try again !");
                             goto key1;
                         } break;
 
                     case 2:
                     key2: menu.ChooseAccaunt();
-                        accaunt = int.Parse(Console.ReadLine());
+                    accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)
                         {
                             security.CheckPassword();
-                            Console.Write("How much money you want to withdraw: ");
-                            var withdraw = decimal.Parse(Console.ReadLine());
+                            var withdraw =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to withdraw: ");
                             bankAccaunt.Withdaw(withdraw);
                         }
                         else if (accaunt == 2)
                         {
                             security.CheckPassword();
-                            Console.Write("How much money you want to withdraw: ");
-                            var withdraw = decimal.Parse(Console.ReadLine());
+                            var withdraw = ValueManipulator.GetInputByMessageToNumbers("How much money you want to withdraw: ");
                             bankAccaunt1.Withdaw(withdraw);
                         }
                         else
                         {
-                            Console.WriteLine("You entered wrong number, try again !");
+                            ValueManipulator.ShowMessage("You entered wrong number, try again !");
                             goto key2;
                         } break;
 
@@ -72,48 +87,48 @@ namespace BankSystemApp.Classes
 
                         if (accaunt == 1)
                         {
-                            Console.Write("How much money you want to deposit: ");
-                            var deposit = decimal.Parse(Console.ReadLine());
+                            var deposit =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to deposit: ");
                             bankAccaunt.Deposit(deposit); break;
                         }
                         else if (accaunt == 2)
                         {
-                            Console.Write("How much money you want to deposit: ");
-                            var deposit = decimal.Parse(Console.ReadLine());
+                            var deposit =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to deposit: ");
                             bankAccaunt1.Deposit(deposit);
                         }
                         else
                         {
-                            Console.WriteLine("You entered wrong number, try again !");
+                            ValueManipulator.ShowMessage("You entered wrong number, try again !");
                             goto key3;
                         } break;
 
                     case 4:
                     key4: menu.ChooseAccaunt();
-                        accaunt = int.Parse(Console.ReadLine());
+                    accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)
                         {
                             security.CheckPassword();
-                            Console.Write("How much money you want to transfer: ");
-                            var transfer = decimal.Parse(Console.ReadLine());
+                            var transfer =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to transfer: ");
                             bankAccaunt.Transfer(bankAccaunt1, transfer);
                         }
                         if (accaunt == 2)
                         {
                             security.CheckPassword();
-                            Console.Write("How much money you want to transfer: ");
-                            var transfer = decimal.Parse(Console.ReadLine());
+                            var transfer =
+                                ValueManipulator.GetInputByMessageToNumbers("How much money you want to transfer: ");
                             bankAccaunt1.Transfer(bankAccaunt, transfer);
                         }
                         else
                         {
-                            Console.WriteLine("You entered wrong number, try again !");
+                            ValueManipulator.ShowMessage("You entered wrong number, try again !");
                             goto key4;
                         } break;
 
                     case 5:
-                        Console.WriteLine("Thank you for using!!!");
+                        ValueManipulator.ShowMessage("Thank you for using!!!");
                         break;
 
                 }
