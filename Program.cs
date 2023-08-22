@@ -7,39 +7,43 @@ namespace BankSystemApp.Classes
     {
         static void Main()
         {
-            var menu = new Menu();
             var bankAccaunt = new BankAccaunt(1, 500m);
             var bankAccaunt1 = new BankAccaunt(2, 1000m);
             var security = new SecuritySystem();
             int number;
             
-            int choiceLogin = ValueManipulator.GetInputByMessageToNumbers("---------------Bank Asia---------------" +
-                                                                          "\n1.Login\n2.Create account\n3.Exit\nChoice: ");
+            int choiceLogin = ValueManipulator.GetInputByMessageToNumbers("---------------Easy Transfer---------------" +
+                                                                          "\n1.Create account\n2.Exit\nChoice: ");
             
             switch (choiceLogin)
             {
-                case 1: break;
+
+                case 1:
+                    string userName = ValueManipulator.GetInputByMessageToDate("---------------Create account---------------\n\nName: ");
+                    int userPassword = ValueManipulator.GetInputByMessageToNumbers("Password: ");
+                    var createAccount = new CreateAccount(userName, userPassword);
+                    createAccount.CreateNewUserAccount();
+                    break;
+
 
                 case 2:
-                    var createAccount = new CreateAccount();
-                    createAccount.CreateAccountUsers();
-                    break;
-                    
-                default:
                     ValueManipulator.ShowMessage($"---------------Goodbye!--------------- ");
                     break;
+
+                default
+                    : throw new Exception("We have only two operation!!! Check again.");
             }
             do
             {
                 Console.WriteLine();
-                menu.start();
+                Menu.start();
                 number = ValueManipulator.GetInputByMessageToNumbers("Please enter a number that you need: ");
                 Console.Clear();
 
                 switch (number)
                 {
                     case 1:
-                    key1: menu.ChooseAccaunt();
+                    key1: Menu.ChooseAccaunt();
                     var accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)
@@ -59,7 +63,7 @@ namespace BankSystemApp.Classes
                         } break;
 
                     case 2:
-                    key2: menu.ChooseAccaunt();
+                    key2: Menu.ChooseAccaunt();
                     accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)
@@ -82,7 +86,7 @@ namespace BankSystemApp.Classes
                         } break;
 
                     case 3:
-                    key3: menu.ChooseAccaunt();
+                    key3: Menu.ChooseAccaunt();
                         accaunt = int.Parse(Console.ReadLine());
 
                         if (accaunt == 1)
@@ -104,7 +108,7 @@ namespace BankSystemApp.Classes
                         } break;
 
                     case 4:
-                    key4: menu.ChooseAccaunt();
+                    key4: Menu.ChooseAccaunt();
                     accaunt = ValueManipulator.InputOption();
 
                         if (accaunt == 1)

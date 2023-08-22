@@ -1,8 +1,8 @@
 using System;
 
-public class Menu
+public static class Menu
 {
-    public void start()
+    public static void start()
     {
         Console.WriteLine("--------------- MENU ---------------");
         Console.WriteLine("1. Balance");
@@ -13,7 +13,7 @@ public class Menu
         Console.WriteLine("------------------------------------");
     }
 
-    public void ChooseAccaunt()
+    public static void ChooseAccaunt()
     {
         Console.WriteLine("You have two Bank Accaunt. Which one do you need ?");
         Console.WriteLine("1. bankAccaunt");

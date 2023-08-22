@@ -18,9 +18,10 @@ public class Login
         Console.WriteLine("---------------Login---------------");
         string userName =
             ValueManipulator.GetInputByMessageToDate("User name: ");
-        int password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
+        int password = 
+            ValueManipulator.GetInputByMessageToNumbers("Password: ");
 
-        while (userName != userName || Password != password)
+        while (UserName != userName || Password != password)
         {
             Console.Clear();
             Console.WriteLine("Incorrect User name or Password. Please, try again.");
