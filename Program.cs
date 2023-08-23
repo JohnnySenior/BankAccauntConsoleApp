@@ -1,37 +1,58 @@
-﻿using System;
-using BankSystemApp.Classes.Classes;
-
-namespace BankSystemApp.Classes
+﻿namespace BankSystemApp.Classes
 {
     class Program
     {
         static void Main()
         {
             int userPassword;
-            
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            int choiceLogin = ValueManipulator.GetInputByMessageToNumbers("---------------Bank Asia---------------" +
-                                                                          "\n1.Create account\n2.Exit\nChoice: ");
-            Console.ResetColor();
 
-            switch (choiceLogin)
+            int loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transefr App ---------------" +
+                                                                          "\n1.Create account" +
+                                                                          "\n2.Exit" +
+                                                                          "\nChoice: ");
+            Console.Clear();
+
+            switch (loginOption)
             {
                 case 1:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    string userName = ValueManipulator.GetInputByMessageToDate("---------------Create account---------------\nName: ");
+                    ValueManipulator.ShowMessage("--------------- Create Accaunt ---------------");
+                    string userName = ValueManipulator.GetInputByMessageToDate("Name: ");
                     userPassword = ValueManipulator.GetInputByMessageToNumbers("Password: ");
-                    Console.ResetColor();
+
                     var createAccount = new CreateAccount(userName, userPassword);
                     createAccount.CreateNewUserAccount();
+
+                    ValueManipulator.ShowMessage("--------------- Login ---------------");
+                    int selection = ValueManipulator.GetInputByMessageToNumbers("1.Login\n2.Exit\nChoice:");
+
+                    if (selection == 1)
+                    {
+                        var login = new Login(createAccount);
+                        string name = ValueManipulator.GetInputByMessageToDate("User name:");
+                        int password = ValueManipulator.GetInputByMessageToNumbers("Password:");
+                        login.UserLogin(name, password);
+                    }
+                    else
+                        ValueManipulator.ShowMessage($"---------------Goodbye {createAccount.Name}!--------------- ");
+
+                    Report.ReportProgress();
+
+                    var menu = new Menu();
+                    menu.ChoiceOptionsOfMenu(createAccount);
                     break;
+
                 case 2:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    ValueManipulator.ShowMessage($"---------------Goodbye!--------------- ");
+                    Report.Exit();
                     break;
+
                 default:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    throw new Exception("There is no such choice.Try again!");
-                    Console.ResetColor();
+                    while (!(loginOption == 1 || loginOption == 2))
+                    {
+                        Report.DefaultCase();
+                        loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transefr App ---------------" +
+                                                                                    "\n1.Create account\n2.Exit\nChoice: ");
+                    }
+                    break;
             }
         }
     }
