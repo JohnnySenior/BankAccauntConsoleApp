@@ -19,12 +19,18 @@ public class CreateAccount
     {
         Random random = new Random();
         cardNumber = random.Next(100000000, 999999999);
+        
+        Console.ForegroundColor = ConsoleColor.Green;
         ValueManipulator.ShowMessage($"\n{Name}, verification successful." +
                                      $"\nYour Visa card has been successfully linked you." +
                                      $"\n\nCard number: {cardNumber}" +
                                      $"\nName: {Name}");
-        
-        int selection = ValueManipulator.GetInputByMessageToNumbers("\n1.Login\n2.Exit\nChoice:");
+        Console.ResetColor();
+
+        Console.ForegroundColor = ConsoleColor.Blue;
+        ValueManipulator.ShowMessage("---------------Section selection---------------");
+        int selection = ValueManipulator.GetInputByMessageToNumbers("1.Login\n2.Exit\nChoice:");
+        Console.ResetColor();
         if (selection == 1)
         {
             var login = new Login(Name, Password);

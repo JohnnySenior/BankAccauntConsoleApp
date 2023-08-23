@@ -1,31 +1,25 @@
 using System;
+using BankSystemApp.Classes.Classes;
 
 public class SecuritySystem
 {
-    public string Password { get; set; }
-
-    public void PasswordError()
+    private int Password { get; set; }
+    public SecuritySystem()
     {
-        Console.WriteLine("Password is wrong, check and try again");
-        Console.WriteLine();
-    }
-
-    public void PasswordPassed()
-    {
-        Console.WriteLine("Password successfully passed !!!");
-        Console.WriteLine();
-    }
-
-    public void CheckPassword()
-    {
-        key: Console.Write("Password:");
-        var password = Console.ReadLine();
+        Password = 12345;
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        int password = ValueManipulator.GetInputByMessageToNumbers("Your password[1-5?]\nEnter password: ");
+        Console.ResetColor();
         Console.Clear();
-        if (password != "password")
+        while (password != Password)
         {
-            PasswordError();
-            goto key;
+            Console.ForegroundColor = ConsoleColor.Red;
+            ValueManipulator.ShowMessage("Password is wrong, check and try again.\n");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            password = ValueManipulator.GetInputByMessageToNumbers("Enter password: ");
+            Console.ResetColor();
+            Console.Clear();
         }
-        PasswordPassed();
     }
 }

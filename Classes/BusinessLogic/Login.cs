@@ -15,20 +15,27 @@ public class Login
     
     public void UserLogin()
     {
+        Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("---------------Login---------------");
         string userName =
-            ValueManipulator.GetInputByMessageToDate("User name: ");
+            ValueManipulator.GetInputByMessageToDate("User name: "); 
         int password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
+        Console.ResetColor();
 
         while (userName != userName || Password != password)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Incorrect User name or Password. Please, try again.");
+            Console.ResetColor();
             userName =
                 ValueManipulator.GetInputByMessageToDate("User name: ");
             password = ValueManipulator.GetInputByMessageToNumbers("Password: ");
         }
         
-        Console.WriteLine("Good");
+        Report.ReportProgress();
+
+        var menuOperation = new Menu();
+        menuOperation.ChoiceOptionsOfMenu();
     }
 }
