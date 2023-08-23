@@ -1,17 +1,21 @@
 using System;
-using BankSystemApp.Classes.Classes;
+using BankSystemApp.Classes;
 
 public class SecuritySystem
 {
-    private int Password { get; set; }
-    public SecuritySystem()
+    private readonly CreateAccount _createAccount;
+
+    public SecuritySystem(CreateAccount createAccount)
     {
-        Password = 12345;
+        _createAccount = createAccount;
+    }
+
+    public void CheckPassword()
+    {
         Console.ForegroundColor = ConsoleColor.DarkCyan;
-        int password = ValueManipulator.GetInputByMessageToNumbers("Your password[1-5?]\nEnter password: ");
-        Console.ResetColor();
+        int password = ValueManipulator.GetInputByMessageToNumbers("Enter password: ");
         Console.Clear();
-        while (password != Password)
+        while (_createAccount.Password != password)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             ValueManipulator.ShowMessage("Password is wrong, check and try again.\n");

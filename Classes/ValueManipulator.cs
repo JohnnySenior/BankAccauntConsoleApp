@@ -1,10 +1,10 @@
 using System;
 
-namespace BankSystemApp.Classes.Classes;
+namespace BankSystemApp.Classes;
 
 public class ValueManipulator
 {
-    
+
     public static int InputOption()
     {
         int option = 0;
@@ -34,31 +34,36 @@ public class ValueManipulator
 
         return option;
     }
-    
+
     public static int GetInputByMessageToNumbers(string message)
     {
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.Write(message);
         int result;
-        
-        while (!Int32.TryParse(Console.ReadLine(), out result))
+        Console.ResetColor();
+
+        while (!int.TryParse(Console.ReadLine(), out result))
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Invalid input. Please try again!");
-            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write(message);
+            Console.ResetColor();
         }
         return result;
     }
 
     public static void ShowMessage(string message)
-    { 
+    {
         Console.WriteLine(message);
     }
 
     public static string GetInputByMessageToDate(string message)
     {
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.Write(message);
+        Console.ResetColor();
         return Console.ReadLine();
     }
-    
+
 }

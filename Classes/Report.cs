@@ -1,6 +1,6 @@
 using System;
 
-namespace BankSystemApp.Classes.Classes;
+namespace BankSystemApp.Classes;
 
 public class Report
 {
@@ -21,6 +21,20 @@ public class Report
     {
         Console.ForegroundColor = ConsoleColor.Blue;
         ValueManipulator.ShowMessage("\nLoading...");
+        Console.ResetColor();
+    }
+
+    public static void Exit()
+    {
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("---------------Goodbye!--------------- ");
+        Console.ResetColor();
+    }
+
+    public static void DefaultCase()
+    {
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("There is no such choice.Try again!");
         Console.ResetColor();
     }
 }
