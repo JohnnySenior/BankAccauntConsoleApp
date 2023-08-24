@@ -6,7 +6,7 @@
         {
             int userPassword;
 
-            int loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transefr App ---------------" +
+            int loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transfer App ---------------" +
                                                                           "\n1.Create account" +
                                                                           "\n2.Exit" +
                                                                           "\nChoice: ");
@@ -15,7 +15,7 @@
             switch (loginOption)
             {
                 case 1:
-                    ValueManipulator.ShowMessage("--------------- Create Accaunt ---------------");
+                    ValueManipulator.ShowMessage("--------------- Create Account ---------------");
                     string userName = ValueManipulator.GetInputByMessageToDate("Name: ");
                     userPassword = ValueManipulator.GetInputByMessageToNumbers("Password: ");
 
@@ -49,7 +49,7 @@
                     while (!(loginOption == 1 || loginOption == 2))
                     {
                         Report.DefaultCase();
-                        loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transefr App ---------------" +
+                        loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transfer App ---------------" +
                                                                                     "\n1.Create account\n2.Exit\nChoice: ");
                     }
                     break;

@@ -3,11 +3,11 @@ using BankSystemApp.Classes;
 
 public class Menu
 {
-    public void ChoiceOptionsOfMenu(CreateAccount createAccaunt)
+    public void ChoiceOptionsOfMenu(CreateAccount createAccount)
     {
         int option;
-        var mainOperation = new MainOperation(createAccaunt);
-        var security = new SecuritySystem(createAccaunt);
+        var mainOperation = new MainOperation(createAccount);
+        var security = new SecuritySystem(createAccount);
 
         do
         {

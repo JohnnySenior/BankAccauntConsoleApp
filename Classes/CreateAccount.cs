@@ -20,7 +20,7 @@ public class CreateAccount
         CardNumber = random.Next(100000000, 999999999);
 
         Console.ForegroundColor = ConsoleColor.Green;
-        ValueManipulator.ShowMessage($"\nHello {Name}, Your new accaunt successfully created." +
+        ValueManipulator.ShowMessage($"\nHello {Name}, Your new account successfully created." +
                                      $"\n\nCard number: {CardNumber}" +
                                      $"\nName: {Name}");
         Console.ResetColor();
