@@ -9,9 +9,10 @@ public class Menu
         var mainOperation = new MainOperation(createAccount);
         var security = new SecuritySystem(createAccount);
 
+    var report = new Report();
         do
         {
-            Report.ShowMenu();
+            report.ShowMenu();
 
             option = ValueManipulator.GetInputByMessageToNumbers("Please enter a number that you need: ");
             Console.Clear();

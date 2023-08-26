@@ -1,7 +1,8 @@
 using System;
 using BankSystemApp.Classes;
+using BankSystemApp.Classes.Interfaces;
 
-public class MainOperation
+public class MainOperation : IMainOperation
 {
     private readonly CreateAccount _createAccount;
     public MainOperation(CreateAccount createAccount)

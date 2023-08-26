@@ -1,10 +1,11 @@
 using System;
+using BankSystemApp.Classes.Interfaces;
 
 namespace BankSystemApp.Classes;
 
-public class Report
+public class Report : IReport
 {
-    public static void ShowMenu()
+    public void ShowMenu()
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("\n--------------- MENU ---------------");
@@ -17,21 +18,21 @@ public class Report
         Console.ResetColor();
     }
 
-    public static void ReportProgress()
+    public void ReportProgress()
     {
         Console.ForegroundColor = ConsoleColor.Blue;
         ValueManipulator.ShowMessage("\nLoading...");
         Console.ResetColor();
     }
 
-    public static void Exit()
+    public void Exit()
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("---------------Goodbye!--------------- ");
         Console.ResetColor();
     }
 
-    public static void DefaultCase()
+    public void DefaultCase()
     {
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("There is no such choice.Try again!");

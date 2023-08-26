@@ -4,6 +4,7 @@
     {
         static void Main()
         {
+            var report = new Report();
             int userPassword;
 
             int loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transfer App ---------------" +
@@ -35,21 +36,23 @@
                     else
                         ValueManipulator.ShowMessage($"---------------Goodbye {createAccount.Name}!--------------- ");
 
-                    Report.ReportProgress();
+                    report.ReportProgress();
 
                     var menu = new Menu();
                     menu.ChoiceOptionsOfMenu(createAccount);
                     break;
 
                 case 2:
-                    Report.Exit();
+                    report.Exit();
                     break;
 
                 default:
                     while (!(loginOption == 1 || loginOption == 2))
                     {
+
                         Report.DefaultCase();
                         loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transfer App ---------------" +
+
                                                                                     "\n1.Create account\n2.Exit\nChoice: ");
                     }
                     break;
