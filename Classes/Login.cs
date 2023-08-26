@@ -1,9 +1,10 @@
 using System;
 using System.Xml.Linq;
+using BankSystemApp.Classes.Interfaces;
 
 namespace BankSystemApp.Classes;
 
-public class Login
+public class Login : ILogin
 {
     private readonly CreateAccount _createAccount;
     public Login(CreateAccount createAccount)

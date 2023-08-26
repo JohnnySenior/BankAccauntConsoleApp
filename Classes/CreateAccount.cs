@@ -1,8 +1,9 @@
 using System;
+using BankSystemApp.Classes.Interfaces;
 
 namespace BankSystemApp.Classes;
 
-public class CreateAccount
+public class CreateAccount : ICreateAccount
 {
     public string Name { get; set; }
     public int Password { get; set; }
