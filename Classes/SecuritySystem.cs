@@ -1,7 +1,8 @@
 using System;
 using BankSystemApp.Classes;
+using BankSystemApp.Classes.Interfaces;
 
-public class SecuritySystem
+public class SecuritySystem : ISecuritySystem
 {
     private readonly CreateAccount _createAccount;
 
