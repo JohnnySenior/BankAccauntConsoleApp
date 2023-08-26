@@ -34,7 +34,7 @@ public class MainOperation : IMainOperation
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Balance -= amount;
-            Console.WriteLine($"${amount} withdrawed from account");
+            Console.WriteLine($"${amount} withdrawn from account");
             Console.ResetColor();
         }
         else
@@ -55,14 +55,14 @@ public class MainOperation : IMainOperation
         int cardNumber4 = random.Next(100000000, 999999999);
         int cardNumber5 = random.Next(100000000, 999999999);
 
-        List<AccountsForTransfer> listOfAccaunts = new List<AccountsForTransfer>();
-        listOfAccaunts.Add(new("Johnny", cardNumber1));
-        listOfAccaunts.Add(new("Zafar", cardNumber2));
-        listOfAccaunts.Add(new("Jasurbek", cardNumber3));
-        listOfAccaunts.Add(new("Elbek", cardNumber4));
-        listOfAccaunts.Add(new("Shexrozbek", cardNumber5));
+        List<AccountsForTransfer> listOfAccounts = new List<AccountsForTransfer>();
+        listOfAccounts.Add(new("Johnny", cardNumber1));
+        listOfAccounts.Add(new("Zafar", cardNumber2));
+        listOfAccounts.Add(new("Jasurbek", cardNumber3));
+        listOfAccounts.Add(new("Elbek", cardNumber4));
+        listOfAccounts.Add(new("Shexrozbek", cardNumber5));
 
-        foreach (var item in listOfAccaunts)
+        foreach (var item in listOfAccounts)
         {
             Console.WriteLine($"{++iteration}. {item}");
         }
@@ -75,7 +75,7 @@ public class MainOperation : IMainOperation
         if (this.Balance >= transfer)
         {
             this.Balance -= transfer; ;
-            Console.Write($"${transfer} transfered from your card (number): {_createAccount.CardNumber}");
+            Console.Write($"${transfer} transferred from your card (number): {_createAccount.CardNumber}");
         }
     }
 
