@@ -49,10 +49,8 @@
                 default:
                     while (!(loginOption == 1 || loginOption == 2))
                     {
-
                         Report.DefaultCase();
                         loginOption = ValueManipulator.GetInputByMessageToNumbers("--------------- Easy Transfer App ---------------" +
-
                                                                                     "\n1.Create account\n2.Exit\nChoice: ");
                     }
                     break;
